@@ -1,0 +1,10 @@
+version: '3'
+services:
+  email:
+    build: .
+    restart: always
+    hostname: email
+    env_file:
+      - .env
+    ports:
+      - ${PORT}:${PORT}
