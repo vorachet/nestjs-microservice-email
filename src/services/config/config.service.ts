@@ -3,8 +3,8 @@ export class ConfigService {
 
   constructor() {
     this.envConfig = {
-      host: process.env.HOST,
-      port: process.env.PORT,
+      host: process.env.EMAIL_SERVICE_HOST,
+      port: process.env.EMAIL_SERVICE_PORT,
     };
   }
 

@@ -3,18 +3,13 @@ import { Controller, HttpStatus, Logger } from '@nestjs/common';
 import { MessagePattern } from '@nestjs/microservices';
 import { MailerService } from '@nest-modules/mailer';
 
-import { ConfigService } from './services/config/config.service';
 import { IEmailData } from './interfaces/email-data.interface';
 import { IMailSendResponse } from './interfaces/mail-send-response.interface';
 
 @Controller()
 export class ServiceController {
   private readonly logger = new Logger(ServiceController.name);
-
-  constructor(
-    private readonly mailerService: MailerService,
-    private readonly configService: ConfigService,
-  ) {}
+  constructor(private readonly mailerService: MailerService) {}
 
   @MessagePattern('email')
   mailSend(data: IEmailData): IMailSendResponse {
